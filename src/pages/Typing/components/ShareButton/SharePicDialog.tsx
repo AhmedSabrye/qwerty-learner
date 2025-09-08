@@ -14,30 +14,12 @@ import { recordShareAction } from '@/utils'
 import { Dialog, Transition } from '@headlessui/react'
 import { useAtomValue } from 'jotai'
 import { Fragment, useCallback, useContext, useEffect, useMemo, useRef, useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import IconXMark from '~icons/heroicons/x-mark-solid'
 
 const PIC_RATIO = 3
 const PIC_LIST = [shareImage1, shareImage2, shareImage3, shareImage4, shareImage5, shareImage6, shareImage7, shareImage8, shareImage9]
-// 我知道有些有点怪，但怪的有趣(狗头)，powered by chatGPT
-const PROMOTE_LIST = [
-  { word: '快人一手', sentence: '速度快得就像比别人多长了一只手' },
-  { word: '手落听雨', sentence: '雷霆手法，震撼观众' },
-  { word: '疾如闪电', sentence: '打字速度极快，就像一道闪电在键盘上迅速穿梭' },
-  { word: '手如疾风', sentence: '手速快得惊人，就像疾风一般' },
-  { word: '精准如箭', sentence: '打字精度极高，就像一箭命中靶心一般准确' },
-  { word: '狂飙突进', sentence: '打字速度快得让人感到狂飙突进的冲劲' },
-  { word: '神速如风', sentence: '神速打字，如同风一样快' },
-  { word: '招招到位', sentence: '打字精度和速度都十分到位，毫不出错。' },
-  { word: '如履平地', sentence: '打字手法熟练，如履平地，行云流水' },
-  { word: '声东击西', sentence: '打字技巧高超，声东击西，出奇制胜' },
-  { word: '魔法使者', sentence: '打字速度快得让人难以置信，就像一名魔法使者。' },
-  { word: '灵活多变', sentence: '打字姿势灵活多变，就像一只蛇一样柔韧。' },
-  { word: '犹如飞鸟', sentence: '打字速度极快，就像一只飞鸟在键盘上翱翔。' },
-  { word: '连珠妙语', sentence: '打字技巧娴熟，如同一连串妙语连珠。' },
-  { word: '百毒不侵', sentence: '打字速度和准确度都非常高，就像身具百毒不侵的能力。' },
-  { word: '攻守兼备', sentence: '打字速度和精度都非常出色，攻守兼备，所向披靡。' },
-  { word: '跃然纸上', sentence: '打字手法灵活多变，跃然纸上，生动有趣。' },
-]
+// promotions come from i18n resources
 
 export type SharePicDialogProps = {
   showState: boolean
@@ -51,6 +33,7 @@ export type SharePicDialogProps = {
 export default function SharePicDialog({ showState, setShowState, randomChoose }: SharePicDialogProps) {
   // eslint-disable-next-line  @typescript-eslint/no-non-null-assertion
   const { state } = useContext(TypingContext)!
+  const { t } = useTranslation()
   const imageRef = useRef<HTMLDivElement>(null)
   const [imageURL, setImageURL] = useState<string | null>(null)
   const currentDictInfo = useAtomValue(currentDictInfoAtom)
@@ -59,7 +42,34 @@ export default function SharePicDialog({ showState, setShowState, randomChoose }
   const dialogFocusRef = useRef<HTMLButtonElement>(null)
 
   const shareImage = useMemo(() => PIC_LIST[Math.floor(randomChoose.picRandom * PIC_LIST.length)], [randomChoose.picRandom])
-  const promote = useMemo(() => PROMOTE_LIST[Math.floor(randomChoose.promoteRandom * PROMOTE_LIST.length)], [randomChoose.promoteRandom])
+  const encourageWords = [
+  { word: 'Ahead', sentence: "So fast it’s like having an extra hand over everyone else." },
+  { word: 'Thunder', sentence: "Hands move with the force of thunder, shaking the crowd." },
+  { word: 'Lightning', sentence: "Typing speed is like lightning darting across the keyboard." },
+  { word: 'Storm', sentence: "So fast it feels like a storm sweeping across the keys." },
+  { word: 'Arrow', sentence: "Typing accuracy is dead-on, like an arrow hitting the bullseye." },
+  { word: 'Rush', sentence: "Typing speed so fierce it feels like a wild surge forward." },
+  { word: 'Wind', sentence: "Typing at godlike speed, as quick as the wind itself." },
+  { word: 'Strike', sentence: "Typing is fast and flawless, not a single mistake." },
+  { word: 'Smooth', sentence: "Typing feels natural and effortless, like gliding on flat ground." },
+  { word: 'Trickster', sentence: "Typing style is crafty and surprising, winning by misdirection." },
+  { word: 'Wizard', sentence: "Typing so fast it feels like casting spells." },
+  { word: 'Flow', sentence: "Typing style is agile and flexible, like a serpent in motion." },
+  { word: 'Bird', sentence: "Typing is swift and free, soaring across the keyboard." },
+  { word: 'Pearls', sentence: "Typing is smooth and witty, like pearls dropping one after another." },
+  { word: 'Untouchable', sentence: "Typing speed and accuracy are invincible, like a body immune to all poisons." },
+  { word: 'Master', sentence: "Typing excels in both speed and accuracy, unstoppable in every way." },
+  { word: 'Leap', sentence: "Typing style is vivid and lively, as if the words are jumping from the screen." }
+]
+  const encouragePromotions = useMemo(
+    () => encourageWords.map((wordObj) => ({ word: wordObj.word, sentence: wordObj.sentence })),
+    [],
+  )
+  const promotions = useMemo(() => encouragePromotions, [encouragePromotions])
+  const promote = useMemo(
+    () => promotions[Math.floor(randomChoose.promoteRandom * (promotions?.length || 1))] || { word: '', sentence: '' },
+    [promotions, randomChoose.promoteRandom],
+  )
 
   useEffect(() => {
     async function loadToPng() {
@@ -119,7 +129,7 @@ export default function SharePicDialog({ showState, setShowState, randomChoose }
               >
                 <Dialog.Panel className="relative transform overflow-hidden rounded-xl bg-white text-left shadow-xl transition-all  dark:bg-gray-700">
                   <div className="flex flex-col items-center justify-center pb-10 pl-20 pr-14 pt-20">
-                    <button className="absolute right-7 top-5" type="button" onClick={handleClose} title="关闭对话框">
+                    <button className="absolute right-7 top-5" type="button" onClick={handleClose} title={t('settings.close_dialog')}>
                       <IconXMark className="h-6 w-6 text-gray-400" />
                     </button>
                     <div className="h-152 w-116">
@@ -148,9 +158,9 @@ export default function SharePicDialog({ showState, setShowState, randomChoose }
                       className="my-btn-primary mr-9 mt-10 h-10"
                       type="button"
                       onClick={handleDownload}
-                      title="保存"
+                      title={t('sharePic.save')}
                     >
-                      保存
+                      {t('sharePic.save')}
                     </button>
                   </div>
                 </Dialog.Panel>
@@ -161,27 +171,29 @@ export default function SharePicDialog({ showState, setShowState, randomChoose }
       </Transition.Root>
 
       <div style={{ position: 'absolute', left: '-999px', zIndex: -1 }}>
-        <div ref={imageRef} className=" box-content w-85 bg-white p-4">
+        <div ref={imageRef} className=" box-content w-85 bg-white flex justify-center p-4">
           <div
-            className="relative flex h-112 w-75 flex-col items-start justify-start rounded-xl shadow-lg"
+            className="relative flex h-120 w-75 flex-col items-start justify-start rounded-xl shadow-lg"
             style={{ backgroundColor: '#F8F8FF' }}
           >
             <div className=" w-full ">
               <KeyboardPanel description={promote.word} />
               <div className="text-center text-xs text-gray-500">{promote.sentence}</div>
               <div className="mx-4 mt-6 flex rounded-xl bg-white px-4 py-3 opacity-50 shadow-xl">
-                <DataBox data={state.timerData.time + ''} description="用时" />
-                <DataBox data={state.timerData.accuracy + '%'} description="正确率" />
-                <DataBox data={state.timerData.wpm + ''} description="WPM" />
+                <DataBox data={state.timerData.time + ''} description={t('speed.time')} />
+                <DataBox data={state.timerData.accuracy + '%'} description={t('speed.accuracy')} />
+                <DataBox data={state.timerData.wpm + ''} description={t('speed.wpm')} />
               </div>
               <div className="ml-5 mt-4 self-start text-base text-gray-800">{currentDictInfo.name}</div>
-              <div className="ml-5 mt-2 self-start text-xs text-gray-600">{`第 ${currentChapter + 1} 章`}</div>
+              <div className="ml-5 mt-2 self-start text-xs text-gray-600">
+                {t('resultScreen.chapter_number', { number: currentChapter + 1 })}
+              </div>
             </div>
-            <div className="mb-3 ml-5 mt-auto">
+            <div className="mb-3 mt-auto">
               <div className="text-xs">Qwerty.kaiyi.cool</div>
-              <div className="mt-1 text-xs font-normal text-gray-400">为键盘工作者设计的单词与肌肉记忆锻炼软件</div>
+              <div className="mt-4 w-11/12 mx-auto rounded-xl text-xs font-normal text-center shadow-md p-2 text-gray-400">{t('mobile.easy_desc')}</div>
             </div>
-            <div className="absolute -right-9 bottom-10 ">
+            <div className="absolute -right-9 bottom-16 ">
               <img src={shareImage} className="w-48" width={186} height={122} />
             </div>
           </div>
@@ -202,23 +214,23 @@ function DataBox({ data, description }: { data: string; description: string }) {
 
 function KeyboardPanel({ description }: { description: string }) {
   return (
-    <div className="mt-10 flex flex-wrap justify-center gap-0">
+    <div className="mt-10 flex justify-center gap-0">
       {description.split('').map((char, index) => (
-        <KeyboardKey key={`${index}-${char}`} char={char} />
+        <KeyboardKey key={`${index}-${char}`} char={char} width={description.length} />
       ))}
     </div>
   )
 }
-
-function KeyboardKey({ char }: { char: string }) {
+// make the font relative to the width of the key
+function KeyboardKey({ char, width }: { char: string, width: number }) {
   return (
-    <div className="relative -mx-1 h-18 w-18">
+    <div className="relative -mx-1 aspect-square flex-1 ">
       <div className="absolute bottom-0 left-0 right-0 top-0">
         <img src={keyboardSvg} className="h-full w-full" />
       </div>
-      <div className="absolute left-0 right-0 top-2.5 flex items-center justify-center">
-        <span className="text-base font-normal text-white" style={{ fontSize: '20px', transform: 'rotateX(30deg) ' }}>
-          {char}
+      <div className="absolute left-0 right-0 flex items-center justify-center" style={{ top: 50 / width }}>
+        <span className="text-base font-normal text-white" style={{ fontSize: 100 / width  , transform: 'rotateX(30deg) ' }}>
+          {char.toUpperCase()}
         </span>
       </div>
     </div>

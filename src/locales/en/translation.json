@@ -319,7 +319,82 @@
       "good": "Some minor issues, you can do better next time!",
       "poor": "Too many errors, how about trying again?"
     },
-    "author": "Click to learn about the author and more works ❤️",
+    "author": "Click to learn about the maintainer and more works ❤️",
     "pronounce_word": "Pronounce {{word}}"
+  },
+  "sharePic": {
+    "save": "Save",
+    "share_title": "Share your result with friends",
+    "share_button": "Share results",
+    "promotions": [
+      {
+        "word": "One Step Ahead",
+        "sentence": "So fast it feels like you’ve got an extra hand."
+      },
+      {
+        "word": "Thunder Hands",
+        "sentence": "Thunderous technique that stuns the audience."
+      },
+      {
+        "word": "Lightning Fast",
+        "sentence": "Typing as swift as lightning across the keyboard."
+      },
+      {
+        "word": "Swift as a Gale",
+        "sentence": "Hand speed astonishing, like a rushing wind."
+      },
+      {
+        "word": "Arrow-Accurate",
+        "sentence": "Accuracy like an arrow striking the bullseye."
+      },
+      {
+        "word": "Full Throttle",
+        "sentence": "So fast it feels like a surge forward."
+      },
+      {
+        "word": "Wind-Speed",
+        "sentence": "Superfast typing, quick as the wind."
+      },
+      {
+        "word": "On Point",
+        "sentence": "Speed and accuracy perfectly on point, no mistakes."
+      },
+      {
+        "word": "Effortlessly Smooth",
+        "sentence": "Technique flows like walking on level ground."
+      },
+      {
+        "word": "Feint and Strike",
+        "sentence": "High-level tactics, surprise and precision."
+      },
+      {
+        "word": "Spellcaster",
+        "sentence": "Speed so great it feels like magic."
+      },
+      {
+        "word": "Agile & Versatile",
+        "sentence": "Typing posture flexible and adaptable."
+      },
+      {
+        "word": "Soaring Bird",
+        "sentence": "Typing speed like a bird soaring over the keys."
+      },
+      {
+        "word": "Pearls of Words",
+        "sentence": "Fluent typing like pearls strung together."
+      },
+      {
+        "word": "Unbreakable",
+        "sentence": "Speed and accuracy, impervious to errors."
+      },
+      {
+        "word": "Balanced Mastery",
+        "sentence": "Speed and precision, both exceptional."
+      },
+      {
+        "word": "Leaps Off the Page",
+        "sentence": "Lively technique, vivid and engaging."
+      }
+    ]
   }
 }
