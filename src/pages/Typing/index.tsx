@@ -4,10 +4,11 @@ import PronunciationSwitcher from './components/PronunciationSwitcher'
 import ResultScreen from './components/ResultScreen'
 import Speed from './components/Speed'
 import StartButton from './components/StartButton'
+// import { useConfetti } from './hooks/useConfetti'
+import StreaksModal from './components/StreaksModal'
 import Switcher from './components/Switcher'
 import WordList from './components/WordList'
 import WordPanel from './components/WordPanel'
-import { useConfetti } from './hooks/useConfetti'
 import { useWordList } from './hooks/useWordList'
 import { TypingContext, TypingStateActionType, initialState, typingReducer } from './store'
 import { DonateCard } from '@/components/DonateCard'
@@ -17,6 +18,7 @@ import LanguageSwitcher from '@/components/LanguageSwitcher'
 import Tooltip from '@/components/Tooltip'
 import { idDictionaryMap } from '@/resources/dictionary'
 import { currentChapterAtom, currentDictIdAtom, isReviewModeAtom, randomConfigAtom, reviewModeInfoAtom } from '@/store'
+import { markDailyGoalCompletion } from '@/store/streaks'
 import { IsDesktop, isLegal } from '@/utils'
 import { useSaveChapterRecord } from '@/utils/db'
 import { useMixPanelChapterLogUploader } from '@/utils/mixpanel'
@@ -40,6 +42,7 @@ const App: React.FC = () => {
 
   const reviewModeInfo = useAtomValue(reviewModeInfoAtom)
   const isReviewMode = useAtomValue(isReviewModeAtom)
+  const [showStreaks, setShowStreaks] = useState(false)
 
   useEffect(() => {
     // 检测用户设备
@@ -105,15 +108,26 @@ const App: React.FC = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [words])
 
+  const markCompletion = useSetAtom(markDailyGoalCompletion)
+
   useEffect(() => {
     // 当用户完成章节后且完成 word Record 数据保存，记录 chapter Record 数据,
     if (state.isFinished && !state.isSavingRecord) {
       chapterLogUploader()
       saveChapterRecord(state)
+      // chapters finished is the daily goal
+      try {
+        markCompletion()
+      } catch (e) {
+        // noop
+      }
+      if (!isReviewMode) {
+        setShowStreaks(true)
+      }
     }
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [state.isFinished, state.isSavingRecord])
+  }, [state.isFinished, state.isSavingRecord, markCompletion, isReviewMode])
 
   useEffect(() => {
     // 启动计时器
@@ -126,12 +140,14 @@ const App: React.FC = () => {
     return () => clearInterval(intervalId)
   }, [state.isTyping, dispatch])
 
-  useConfetti(state.isFinished)
+  // Confetti handled by streak celebrations on ResultScreen
 
   return (
     <TypingContext.Provider value={{ state: state, dispatch }}>
       <EnhancedPromotionModal />
       {/* {state.isFinished && <DonateCard />} */}
+      {state.isFinished && <DonateCard />}
+      <StreaksModal open={true} onClose={setShowStreaks} />
       {state.isFinished && <ResultScreen />}
       <Layout>
         <Header>
