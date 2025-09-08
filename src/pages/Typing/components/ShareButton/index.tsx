@@ -1,5 +1,6 @@
 import { LucideShare2, Share } from 'lucide-react'
 import SharePicDialog from './SharePicDialog'
+import StreakShareDialog from './StreakShareDialog'
 import { recordShareAction } from '@/utils'
 import { useCallback, useMemo, useState } from 'react'
 import { useTranslation } from 'react-i18next'
@@ -8,6 +9,7 @@ import IconShare2 from '~icons/tabler/share-2'
 export default function ShareButton() {
   const [isShowSharePanel, setIsShowSharePanel] = useState(false)
   const { t } = useTranslation()
+  // const [isShowStreakShare, setIsShowStreakShare] = useState(false)
 
   const randomChoose = useMemo(
     () => ({
@@ -25,6 +27,7 @@ export default function ShareButton() {
   return (
     <>
       {isShowSharePanel && <SharePicDialog showState={isShowSharePanel} setShowState={setIsShowSharePanel} randomChoose={randomChoose} />}
+      {/* <StreakShareDialog  /> */}
 
       <button
         type="button"
@@ -35,6 +38,14 @@ export default function ShareButton() {
         {/* <IconShare2 /> */}
         {t('sharePic.share_button')}
         <LucideShare2/>
+      </button>
+      <button
+        type="button"
+        className="cursor-pointer text-xl text-gray-500 hover:text-indigo-400"
+        // onClick={onClickStreakShare}
+        title="分享你的连续天数"
+      >
+        <IconShare2 />
       </button>
     </>
   )

@@ -1,3 +1,4 @@
+// celebrations moved to StreaksModal
 import { TypingContext, TypingStateActionType } from '../../store'
 import ShareButton from '../ShareButton'
 import { AuthorButton } from './AuthorButton'
@@ -15,6 +16,7 @@ import {
   reviewModeInfoAtom,
   wordDictationConfigAtom,
 } from '@/store'
+import { streakStateAtom } from '@/store/streaks'
 import type { InfoPanelType } from '@/typings'
 import { recordOpenInfoPanelAction } from '@/utils'
 import { Transition } from '@headlessui/react'
@@ -45,6 +47,8 @@ const ResultScreen = () => {
   const setReviewModeInfo = useSetAtom(reviewModeInfoAtom)
   const isReviewMode = useAtomValue(isReviewModeAtom)
 
+  // const streak = useAtomValue(streakStateAtom)
+
   useEffect(() => {
     // tick a zero timer to calc the stats
     dispatch({ type: TypingStateActionType.TICK_TIMER, addTime: 0 })
@@ -55,9 +59,10 @@ const ResultScreen = () => {
     const exportData = userInputLogs.map((log) => {
       const word = words[log.index]
       const wordName = word.name
+      const transJoined = Array.isArray(word.trans) ? word.trans.join(';') : Object.values(word.trans).flat().join(';')
       return {
         ...word,
-        trans: word.trans.join(';'),
+        trans: transJoined,
         correctCount: log.correctCount,
         wrongCount: log.wrongCount,
         wrongLetters: Object.entries(log.LetterMistakes)
@@ -239,6 +244,7 @@ const ResultScreen = () => {
                 />
                 <RemarkRing remark={timeString} caption={t('resultScreen.chapter_time')} />
                 <RemarkRing remark={state.timerData.wpm + ''} caption={t('resultScreen.wpm')} />
+                {/* Streak summary moved to StreaksModal */}
               </div>
               <div className="z-10 ml-6 flex-1 overflow-visible rounded-xl bg-indigo-50 dark:bg-gray-700">
                 <div className="customized-scrollbar z-20 ml-8 mr-1 flex h-80 flex-row flex-wrap content-start gap-4 overflow-y-auto overflow-x-hidden pr-7 pt-9">
@@ -296,6 +302,7 @@ const ResultScreen = () => {
                 </a>
               </div>
             </div>
+            {/* Weekly heatmap and quote moved to StreaksModal */}
             <div className="mt-10 flex w-full justify-center gap-5 px-5 text-xl">
               {!isReviewMode && (
                 <>

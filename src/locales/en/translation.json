@@ -395,6 +395,12 @@
         "word": "Leaps Off the Page",
         "sentence": "Lively technique, vivid and engaging."
       }
-    ]
+    ],
+    "streaks": {
+      "current_streak": "Current streak",
+      "days": "days",
+      "longest": "Longest: {{days}} days",
+      "week_overview": "This Week"
+    }
   }
 }

@@ -395,6 +395,12 @@
         "word": "跃然纸上",
         "sentence": "打字手法灵活多变，跃然纸上，生动有趣。"
       }
-    ]
+    ],
+    "streaks": {
+      "current_streak": "当前连续天数",
+      "days": "天",
+      "longest": "最长：{{days}} 天",
+      "week_overview": "本周概览"
+    }
   }
 }
