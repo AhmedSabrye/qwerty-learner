@@ -5,7 +5,7 @@ import ResultScreen from './components/ResultScreen'
 import Speed from './components/Speed'
 import StartButton from './components/StartButton'
 // import { useConfetti } from './hooks/useConfetti'
-import StreaksModal from './components/StreaksModal'
+// import StreaksModal from './components/StreaksModal'
 import Switcher from './components/Switcher'
 import WordList from './components/WordList'
 import WordPanel from './components/WordPanel'
@@ -17,7 +17,7 @@ import LanguageSwitcher from '@/components/LanguageSwitcher'
 import Tooltip from '@/components/Tooltip'
 import { idDictionaryMap } from '@/resources/dictionary'
 import { currentChapterAtom, currentDictIdAtom, isReviewModeAtom, randomConfigAtom, reviewModeInfoAtom } from '@/store'
-import { markDailyGoalCompletion } from '@/store/streaks'
+// import { markDailyGoalCompletion } from '@/store/streaks'
 import { IsDesktop, isLegal } from '@/utils'
 import { useSaveChapterRecord } from '@/utils/db'
 import { useMixPanelChapterLogUploader } from '@/utils/mixpanel'
@@ -107,7 +107,7 @@ const App: React.FC = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [words])
 
-  const markCompletion = useSetAtom(markDailyGoalCompletion)
+  // const markCompletion = useSetAtom(markDailyGoalCompletion)
 
   useEffect(() => {
     // 当用户完成章节后且完成 word Record 数据保存，记录 chapter Record 数据,
@@ -116,7 +116,7 @@ const App: React.FC = () => {
       saveChapterRecord(state)
       // chapters finished is the daily goal
       try {
-        markCompletion()
+        // markCompletion()
       } catch (e) {
         // noop
       }
@@ -126,7 +126,7 @@ const App: React.FC = () => {
     }
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [state.isFinished, state.isSavingRecord, markCompletion, isReviewMode])
+  }, [state.isFinished, state.isSavingRecord, isReviewMode])
 
   useEffect(() => {
     // 启动计时器
@@ -146,7 +146,7 @@ const App: React.FC = () => {
       {/* <EnhancedPromotionModal /> */}
       {/* {state.isFinished && <DonateCard />} */}
       {state.isFinished && <DonateCard />}
-      <StreaksModal open={true} onClose={setShowStreaks} />
+      {/* <StreaksModal open={true} onClose={setShowStreaks} /> */}
       {state.isFinished && <ResultScreen />}
       <Layout>
         <Header>
