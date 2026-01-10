@@ -29,6 +29,7 @@
     "consider_donate": "考虑捐赠我们",
     "use_vscode_plugin": "使用 Visual Studio Code 插件版 Qwerty Learner",
     "friend_links": "查看友链",
+    "github_page": "前往 GitHub 项目主页",
     "icp": "鲁ICP备2022030649号"
   },
   "gallery": {
@@ -321,6 +322,102 @@
     },
     "author": "点击了解作者和更多作品 ❤️",
     "pronounce_word": "朗读 {{word}}"
+  },
+  "footer": {
+    "vscode_plugin": {
+      "title": "VSCode 摸🐟插件",
+      "description": "我们根据大家的建议开发了 VSCode 插件，支持一键启动，随时开始背单词。可以在任意文件中一键开启，开启后单词显示在状态栏中，且插件会拦截用户对文档的输入，不会影响到原始文档。",
+      "github_link": "GitHub 项目",
+      "plugin_link": "VSCode 插件链接"
+    },
+    "community": {
+      "title": "用户反馈社群",
+      "description_1": "Qwerty Learner 是一个开源项目，旨在为用户提供高质量、可靠的打字练习工具。",
+      "description_2": "加入我们的用户社群后，您可以与我们的开发团队进行沟通，分享您的使用体验和建议，帮助我们改进产品，同时也能够及时了解我们的最新动态和更新内容。",
+      "description_3": "我们深信，与用户的良好互动和反馈是推动我们不断前进和提高的重要因素。因此，我们诚挚邀请您加入我们的社群，与我们一起打造更好的「Qwerty Learner」！",
+      "thanks": "再次感谢您的支持和关注！"
+    },
+    "redbook": {
+      "title": "小红书社群",
+      "description_1": "Qwerty Learner 是一个开源项目，旨在为用户提供高质量、可靠的打字练习工具。",
+      "description_2": "关注小红书后，您可以获得开发团队的最新动态和更新内容，反馈您的使用体验和建议，帮助我们改进产品。",
+      "description_3": "我们深信，与用户的良好互动和反馈是推动我们不断前进和提高的重要因素。因此，我们诚挚邀请您关注我们的小红书账号，与我们一起打造更好的「Qwerty Learner」！",
+      "tips": "Tips: 从小红书「我」的左上角点击 三 找到 扫一扫"
+    }
+  },
+  "friendLinks": {
+    "title": "友情链接",
+    "contact_text": "想要添加友链？请联系邮箱：",
+    "links": {
+      "ezbdc": {
+        "title": "ez背单词",
+        "description": "一款极简的英文单词学习应用，可以非常方便高效地学习英文，具有有挑战性的单词背诵模式，无需注册，下载即用"
+      },
+      "kai": {
+        "title": "Kai",
+        "description": "Kai 的个人博客，记录了一些技术文章，生活感悟，以及一些有趣的小项目"
+      },
+      "webworker": {
+        "title": "Web Worker-前端程序员都爱听",
+        "description": "Web Worker 播客是几个前端程序员闲聊的前端中文音频播客节目。节目围绕程序员领域瞎聊，聊资讯、聊职场、聊技术选型……只要是和 web 开发有关的都可以聊。"
+      }
+    }
+  },
+  "tipAlert": {
+    "title": "插件冲突！",
+    "description": "如果多次输入失败，可能是与本地浏览器插件冲突，请关闭相关插件或切换浏览器试试"
+  },
+  "imeAlert": {
+    "message": "您正在使用输入法，请关闭输入法。"
+  },
+  "promotion": {
+    "close": "关闭",
+    "title": "体验 QwertyLearner.ai",
+    "subtitle": "解锁更强大的学习体验 ✨",
+    "intro": "不会编程？想拥有自己的专属学习词典？操作简单，一键上传，点击即用",
+    "recommendation": "那么，推荐您尝试由英国 DeepLearningAI 专业团队开发运营的 QwertyLearner.ai",
+    "features_title": "🚀 专业功能",
+    "features": {
+      "ai_vocabulary": "AI 智能词库",
+      "ai_vocabulary_desc": "一键上传，智能生成释义和词性，打造专属自定义词库",
+      "article_practice": "文章练习",
+      "article_practice_desc": "自定义文章内容，提升实战能力",
+      "cloud_sync": "云端同步",
+      "cloud_sync_desc": "多设备练习记录、错题库同步",
+      "dictionary": "词典选择",
+      "dictionary_desc": "更多丰富的专业词库"
+    },
+    "disclaimer": "说明：QwertyLearner.ai 由英国 DeepLearningAI 独立开发运营，为开源版 QwertyLearner 的独立衍生版本，开源版将持续维持开源与开放运营。",
+    "try_now": "🚀 立即体验 QwertyLearner.ai"
+  },
+  "dictRequest": {
+    "button": "寻找更多词典",
+    "title": "寻找更多词典？",
+    "programmer_title": "👨‍💻 具备编程技能？",
+    "programmer_description": "您可以参考我们的",
+    "contribution_guide": "词典贡献指南",
+    "programmer_suffix": "，为开源项目贡献新的词典内容。",
+    "try_title": "🚀 尝试 QwertyLearner.ai",
+    "try_description": "不会编程？想拥有自己的专属学习词典？操作简单，一键上传，点击即用",
+    "try_recommendation": "那么，推荐您尝试由英国 DeepLearningAI 专业团队开发运营的 QwertyLearner.ai",
+    "try_button": "🚀 体验 QwertyLearner.ai"
+  },
+  "donatingCard": {
+    "select_amount": "选择您的捐赠金额：",
+    "sticker_form": "贴纸寄送地址问卷",
+    "view_sticker": "查看贴纸",
+    "sticker_notice": "此贴纸非商品，仅用于感谢您的捐赠，不可用于任何商业用途",
+    "custom": "自定义"
+  },
+  "starCard": {
+    "light_it_up": "点亮它！",
+    "bookmark_shortcut": "收藏快捷键",
+    "want_to_bookmark": "我想收藏",
+    "auto_close": "后自动关闭",
+    "close_tip": "关闭提示",
+    "bookmark_message": "坚持练习，提高语言能力。将",
+    "qwerty_learner": "「Qwerty Learner」",
+    "to_bookmarks": "保存到收藏夹，永不迷失！"
   },
   "sharePic": {
     "save": "保存",

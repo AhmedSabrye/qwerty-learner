@@ -3,6 +3,7 @@ import classNames from 'classnames'
 import type { ElementType, SVGProps } from 'react'
 import type React from 'react'
 import { Fragment } from 'react'
+import { useTranslation } from 'react-i18next'
 
 type InfoPanelProps = {
   openState: boolean
@@ -15,6 +16,8 @@ type InfoPanelProps = {
 }
 
 const InfoPanel: React.FC<InfoPanelProps> = ({ openState, title, onClose, icon: Icon, iconClassName, buttonClassName, children }) => {
+  const { t } = useTranslation()
+
   return (
     <Transition.Root show={openState} as={Fragment}>
       <Dialog as="div" className="relative z-50" onClose={() => onClose()}>
@@ -62,7 +65,7 @@ const InfoPanel: React.FC<InfoPanelProps> = ({ openState, title, onClose, icon: 
                 </div>
                 <div className="bg-gray-50 px-4 py-3 dark:bg-gray-700  sm:flex sm:flex-row-reverse sm:px-6">
                   <button type="button" className={classNames(buttonClassName, 'my-btn-info-panel ')} onClick={() => onClose()}>
-                    关闭
+                    {t('promotion.close')}
                   </button>
                 </div>
               </Dialog.Panel>

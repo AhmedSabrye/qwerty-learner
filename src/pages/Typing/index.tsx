@@ -161,7 +161,7 @@ const App: React.FC = () => {
               } my-btn-primary transition-all duration-300 `}
               onClick={skipWord}
             >
-              Skip
+              {t('app.skip')}
             </button>
           </Tooltip>
           <LanguageSwitcher />

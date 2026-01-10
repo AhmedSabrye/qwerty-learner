@@ -1,11 +1,14 @@
 import sticker2 from '@/assets/sticker2.jpg'
 import sticker1 from '@/assets/sticker.jpg'
+import { useTranslation } from 'react-i18next'
 import { Tooltip } from 'react-tooltip'
 import 'react-tooltip/dist/react-tooltip.css'
 import IconInfo from '~icons/ic/outline-info'
 import SolarStickerSmileSquareOutline from '~icons/solar/sticker-smile-square-outline'
 
 export const StickerButton = ({ className }: { className?: string }) => {
+  const { t } = useTranslation()
+
   return (
     <>
       <div
@@ -15,7 +18,7 @@ export const StickerButton = ({ className }: { className?: string }) => {
         ${className}`}
       >
         <SolarStickerSmileSquareOutline className="mb-[2px] mr-2 inline-block text-sm " />
-        查看贴纸
+        {t('donatingCard.view_sticker')}
       </div>
       <Tooltip
         id="sticker-btn"
@@ -29,7 +32,7 @@ export const StickerButton = ({ className }: { className?: string }) => {
         </div>
         <span className="mt-3 text-xs font-bold text-gray-500">
           <IconInfo className="mb-[3px] mr-1 inline-block" />
-          此贴纸非商品，仅用于感谢您的捐赠，不可用于任何商业用途
+          {t('donatingCard.sticker_notice')}
         </span>
       </Tooltip>
     </>
