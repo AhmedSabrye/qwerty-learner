@@ -5,10 +5,12 @@ import { Dialog, Transition } from '@headlessui/react'
 import { useAtom } from 'jotai'
 import type React from 'react'
 import { Fragment, useEffect, useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import IconStar from '~icons/heroicons/star-solid'
 import IconX from '~icons/tabler/x'
 
 const EnhancedPromotionModal: React.FC = () => {
+  const { t } = useTranslation()
   const [hasSeenPromotion, setHasSeenPromotion] = useAtom(hasSeenEnhancedPromotionAtom)
   const [isOpen, setIsOpen] = useState(false)
 
@@ -78,7 +80,7 @@ const EnhancedPromotionModal: React.FC = () => {
                     type="button"
                     onClick={handleDismiss}
                     className="rounded-full p-1 text-gray-400 transition-colors hover:bg-gray-100 hover:text-gray-600 dark:hover:bg-gray-700 dark:hover:text-gray-300"
-                    title="关闭"
+                    title={t('promotion.close')}
                   >
                     <IconX className="h-5 w-5" />
                   </button>
@@ -92,56 +94,53 @@ const EnhancedPromotionModal: React.FC = () => {
                       <IconStar className="h-10 w-10 text-white" />
                     </div>
                     <h3 className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-3xl font-bold text-transparent">
-                      体验 QwertyLearner.ai
+                      {t('promotion.title')}
                     </h3>
 
-                    <p className="mt-2 text-sm text-gray-600 dark:text-gray-400">解锁更强大的学习体验 ✨</p>
+                    <p className="mt-2 text-sm text-gray-600 dark:text-gray-400">{t('promotion.subtitle')}</p>
                   </div>
 
                   {/* Main content */}
                   <div className="space-y-4 py-2 text-sm text-gray-700 dark:text-gray-300">
                     <p className="text-center font-medium text-gray-900 dark:text-white">
-                      不会编程？想拥有自己的专属学习词典？操作简单，一键上传，点击即用
+                      {t('promotion.intro')}
                       <br />
                       <div className="my-2"></div>
-                      那么，推荐您尝试由英国 DeepLearningAI 专业团队开发运营的 QwertyLearner.ai
+                      {t('promotion.recommendation')}
                     </p>
 
                     <div className="rounded-lg bg-white p-4 shadow-sm dark:bg-gray-800">
-                      <h4 className="mb-3 font-semibold text-gray-900 dark:text-white">🚀 专业功能</h4>
+                      <h4 className="mb-3 font-semibold text-gray-900 dark:text-white">{t('promotion.features_title')}</h4>
                       <ul className="space-y-2.5">
                         <li className="flex items-start">
                           <span className="mr-2 mt-0.5 text-blue-500">•</span>
                           <span>
-                            <strong>AI 智能词库</strong> - 一键上传，智能生成释义和词性，打造专属自定义词库
+                            <strong>{t('promotion.features.ai_vocabulary')}</strong> - {t('promotion.features.ai_vocabulary_desc')}
                           </span>
                         </li>
                         <li className="flex items-start">
                           <span className="mr-2 mt-0.5 text-blue-500">•</span>
                           <span>
-                            <strong>文章练习</strong> - 自定义文章内容，提升实战能力
+                            <strong>{t('promotion.features.article_practice')}</strong> - {t('promotion.features.article_practice_desc')}
                           </span>
                         </li>
                         <li className="flex items-start">
                           <span className="mr-2 mt-0.5 text-blue-500">•</span>
                           <span>
-                            <strong>云端同步</strong> - 多设备练习记录、错题库同步
+                            <strong>{t('promotion.features.cloud_sync')}</strong> - {t('promotion.features.cloud_sync_desc')}
                           </span>
                         </li>
                         <li className="flex items-start">
                           <span className="mr-2 mt-0.5 text-blue-500">•</span>
                           <span>
-                            <strong>词典选择</strong> - 更多丰富的专业词库
+                            <strong>{t('promotion.features.dictionary')}</strong> - {t('promotion.features.dictionary_desc')}
                           </span>
                         </li>
                       </ul>
                     </div>
 
                     <div className="rounded-lg bg-amber-50 p-3 text-xs text-amber-800 dark:bg-amber-900/20 dark:text-amber-200">
-                      <p>
-                        <strong>说明：</strong>QwertyLearner.ai 由英国 DeepLearningAI 独立开发运营，为开源版 QwertyLearner
-                        的独立衍生版本，开源版将持续维持开源与开放运营。
-                      </p>
+                      <p>{t('promotion.disclaimer')}</p>
                     </div>
                   </div>
 
@@ -152,7 +151,7 @@ const EnhancedPromotionModal: React.FC = () => {
                       onClick={handleTryNow}
                       className="w-full transform rounded-lg bg-gradient-to-r from-blue-500 to-purple-600 px-8 py-4 text-lg font-bold text-white shadow-lg transition-all duration-200 hover:scale-105 hover:from-blue-600 hover:to-purple-700 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
                     >
-                      🚀 立即体验 QwertyLearner.ai
+                      {t('promotion.try_now')}
                     </button>
                   </div>
                 </div>

@@ -73,47 +73,45 @@ const Footer: React.FC = () => {
 
       <InfoPanel
         openState={infoPanelState.vsc}
-        title="VSCode 摸🐟插件"
+        title={t('footer.vscode_plugin.title')}
         icon={IconTerminal2}
         buttonClassName="bg-sky-500 hover:bg-sky-400"
         iconClassName="text-sky-500 bg-sky-100 dark:text-sky-300 dark:bg-sky-500"
         onClose={() => handleCloseInfoPanel('vsc')}
       >
         <p className="text-sm text-gray-500  dark:text-gray-400">
-          我们根据大家的建议开发了 VSCode 插件，支持一键启动，随时开始背单词。
-          可以在任意文件中一键开启，开启后单词显示在状态栏中，且插件会拦截用户对文档的输入，不会影响到原始文档。
+          {t('footer.vscode_plugin.description')}
         </p>
         <br /> <br />
         <a className="mr-5 underline dark:text-gray-300" href="https://github.com/Kaiyiwing/qwerty-learner-vscode">
-          GitHub 项目
+          {t('footer.vscode_plugin.github_link')}
         </a>
         <a className="underline dark:text-gray-300" href="https://marketplace.visualstudio.com/items?itemName=Kaiyi.qwerty-learner">
-          VSCode 插件链接
+          {t('footer.vscode_plugin.plugin_link')}
         </a>
         <br />
       </InfoPanel>
 
       <InfoPanel
         openState={infoPanelState.community}
-        title="用户反馈社群"
+        title={t('footer.community.title')}
         icon={IconWechat}
         buttonClassName="bg-green-500 hover:bg-green-400"
         iconClassName="text-green-500 bg-green-100 dark:text-green-300 dark:bg-green-500"
         onClose={() => handleCloseInfoPanel('community')}
       >
         <p className="text-sm text-gray-500 dark:text-gray-400">
-          Qwerty Learner 是一个开源项目，旨在为用户提供高质量、可靠的打字练习工具。
+          {t('footer.community.description_1')}
           <br />
-          加入我们的用户社群后，您可以与我们的开发团队进行沟通，分享您的使用体验和建议，帮助我们改进产品，同时也能够及时了解我们的最新动态和更新内容。
+          {t('footer.community.description_2')}
           <br />
           <br />
         </p>
         <p className="text-sm text-gray-700 dark:text-gray-200">
-          我们深信，与用户的良好互动和反馈是推动我们不断前进和提高的重要因素。因此，我们诚挚邀请您加入我们的社群，与我们一起打造更好的
-          「Qwerty Learner」！
+          {t('footer.community.description_3')}
         </p>
         <br />
-        <p className="text-sm text-gray-500  dark:text-gray-400">再次感谢您的支持和关注！</p>
+        <p className="text-sm text-gray-500  dark:text-gray-400">{t('footer.community.thanks')}</p>
         <br />
         <img className="ml-1 w-2/6 " src="https://qwerty.kaiyi.cool/weChat-group.png" alt="weChat-group" />
         <br />
@@ -121,31 +119,30 @@ const Footer: React.FC = () => {
 
       <InfoPanel
         openState={infoPanelState.redBook}
-        title="小红书社群"
+        title={t('footer.redbook.title')}
         icon={IconXiaoHongShu}
         buttonClassName="bg-red-500 hover:bg-red-400"
         iconClassName="text-red-500 bg-red-100 dark:text-red-600 dark:bg-red-500"
         onClose={() => handleCloseInfoPanel('redBook')}
       >
         <p className="text-sm text-gray-500  dark:text-gray-400">
-          Qwerty Learner 是一个开源项目，旨在为用户提供高质量、可靠的打字练习工具。
+          {t('footer.redbook.description_1')}
           <br />
-          关注小红书后，您可以获得开发团队的最新动态和更新内容，反馈您的使用体验和建议，帮助我们改进产品。
+          {t('footer.redbook.description_2')}
           <br />
           <br />
         </p>
         <p className="text-sm text-gray-700 dark:text-gray-200">
-          我们深信，与用户的良好互动和反馈是推动我们不断前进和提高的重要因素。因此，我们诚挚邀请您关注我们的小红书账号，与我们一起打造更好的
-          「Qwerty Learner」！
+          {t('footer.redbook.description_3')}
         </p>
         <br />
         <img className="ml-1 w-5/12 " src={redBookCode} alt="redBook" />
-        <p className="text-sm text-gray-500 dark:text-gray-400">Tips: 从小红书“我”的左上角点击 三 找到 扫一扫</p>
+        <p className="text-sm text-gray-500 dark:text-gray-400">{t('footer.redbook.tips')}</p>
         <br />
       </InfoPanel>
 
       <footer className="mb-1 mt-4 flex w-full items-center justify-center gap-2.5 text-sm ease-in" onClick={(e) => e.currentTarget.blur()}>
-        <a href="https://github.com/Kaiyiwing/qwerty-learner" target="_blank" rel="noreferrer" aria-label="前往 GitHub 项目主页">
+        <a href="https://github.com/Kaiyiwing/qwerty-learner" target="_blank" rel="noreferrer" aria-label={t('app.github_page')}>
           <IconGithub fontSize={15} className="text-gray-500 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-100" />
         </a>
 

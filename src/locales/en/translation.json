@@ -29,6 +29,7 @@
     "consider_donate": "Consider donating",
     "use_vscode_plugin": "Use Visual Studio Code plugin",
     "friend_links": "Friend links",
+    "github_page": "Go to GitHub project page",
     "icp": "ICP No. 鲁ICP备2022030649号"
   },
   "gallery": {
@@ -321,6 +322,102 @@
     },
     "author": "Click to learn about the maintainer and more works ❤️",
     "pronounce_word": "Pronounce {{word}}"
+  },
+  "footer": {
+    "vscode_plugin": {
+      "title": "VSCode Productivity Plugin",
+      "description": "Based on user feedback, we developed a VSCode plugin that supports one-click startup for learning words anytime. It can be enabled in any file, displaying words in the status bar, and intercepts document input without affecting the original file.",
+      "github_link": "GitHub Project",
+      "plugin_link": "VSCode Plugin Link"
+    },
+    "community": {
+      "title": "User Feedback Community",
+      "description_1": "Qwerty Learner is an open-source project aimed at providing users with high-quality, reliable typing practice tools.",
+      "description_2": "After joining our community, you can communicate with our development team, share your experience and suggestions, help us improve the product, and stay updated with our latest news.",
+      "description_3": "We firmly believe that good interaction and feedback from users are important factors driving us forward. Therefore, we sincerely invite you to join our community and help us build a better Qwerty Learner!",
+      "thanks": "Thank you again for your support and attention!"
+    },
+    "redbook": {
+      "title": "Xiaohongshu Community",
+      "description_1": "Qwerty Learner is an open-source project aimed at providing users with high-quality, reliable typing practice tools.",
+      "description_2": "Follow us on Xiaohongshu to get the latest updates from our development team, share your experience and suggestions, and help us improve the product.",
+      "description_3": "We firmly believe that good interaction and feedback from users are important factors driving us forward. Therefore, we sincerely invite you to follow our Xiaohongshu account and help us build a better Qwerty Learner!",
+      "tips": "Tips: From 'Me' page, tap ≡ in the top left to find 'Scan'"
+    }
+  },
+  "friendLinks": {
+    "title": "Friend Links",
+    "contact_text": "Want to add a friend link? Contact us at:",
+    "links": {
+      "ezbdc": {
+        "title": "ez Vocabulary",
+        "description": "A minimalist English vocabulary learning app with a challenging memorization mode. No registration required, download and use instantly."
+      },
+      "kai": {
+        "title": "Kai",
+        "description": "Kai's personal blog featuring technical articles, life reflections, and interesting mini-projects."
+      },
+      "webworker": {
+        "title": "Web Worker - Frontend Podcast",
+        "description": "Web Worker is a Chinese audio podcast where frontend programmers chat about web development topics including news, career advice, and technology choices."
+      }
+    }
+  },
+  "tipAlert": {
+    "title": "Plugin Conflict!",
+    "description": "If input fails repeatedly, it might be conflicting with a local browser plugin. Try disabling related plugins or switching browsers."
+  },
+  "imeAlert": {
+    "message": "You are using an input method. Please disable it."
+  },
+  "promotion": {
+    "close": "Close",
+    "title": "Experience QwertyLearner.ai",
+    "subtitle": "Unlock a more powerful learning experience ✨",
+    "intro": "No coding skills? Want your own personalized learning dictionary? Simple to use, one-click upload, instant access.",
+    "recommendation": "We recommend you try QwertyLearner.ai, developed and operated by the DeepLearningAI professional team from the UK.",
+    "features_title": "🚀 Professional Features",
+    "features": {
+      "ai_vocabulary": "AI Smart Vocabulary",
+      "ai_vocabulary_desc": "One-click upload, AI generates definitions and parts of speech for your custom vocabulary",
+      "article_practice": "Article Practice",
+      "article_practice_desc": "Custom article content to improve practical skills",
+      "cloud_sync": "Cloud Sync",
+      "cloud_sync_desc": "Multi-device practice records and error book synchronization",
+      "dictionary": "Dictionary Selection",
+      "dictionary_desc": "More rich professional vocabulary libraries"
+    },
+    "disclaimer": "Note: QwertyLearner.ai is independently developed and operated by DeepLearningAI (UK), as a derivative version of the open-source QwertyLearner. The open-source version will continue to maintain open-source and open operations.",
+    "try_now": "🚀 Try QwertyLearner.ai Now"
+  },
+  "dictRequest": {
+    "button": "Find More Dictionaries",
+    "title": "Looking for More Dictionaries?",
+    "programmer_title": "👨‍💻 Have Programming Skills?",
+    "programmer_description": "You can refer to our",
+    "contribution_guide": "Dictionary Contribution Guide",
+    "programmer_suffix": "to contribute new dictionary content to the open-source project.",
+    "try_title": "🚀 Try QwertyLearner.ai",
+    "try_description": "No coding skills? Want your own personalized learning dictionary? Simple to use, one-click upload, instant access.",
+    "try_recommendation": "We recommend you try QwertyLearner.ai, developed and operated by the DeepLearningAI professional team from the UK.",
+    "try_button": "🚀 Experience QwertyLearner.ai"
+  },
+  "donatingCard": {
+    "select_amount": "Select your donation amount:",
+    "sticker_form": "Sticker mailing address form",
+    "view_sticker": "View sticker",
+    "sticker_notice": "This sticker is not for sale, only for thanking your donation, and cannot be used for any commercial purpose",
+    "custom": "Custom"
+  },
+  "starCard": {
+    "light_it_up": "Light it up!",
+    "bookmark_shortcut": "Bookmark shortcut",
+    "want_to_bookmark": "I want to bookmark",
+    "auto_close": "auto close",
+    "close_tip": "Close tip",
+    "bookmark_message": "Keep practicing and improve your language skills. Save",
+    "qwerty_learner": "Qwerty Learner",
+    "to_bookmarks": "to bookmarks, never get lost!"
   },
   "sharePic": {
     "save": "Save",

@@ -1,4 +1,5 @@
 import type { AmountType } from '..'
+import { useTranslation } from 'react-i18next'
 
 export const Amount = ({
   amount,
@@ -9,6 +10,8 @@ export const Amount = ({
   onClick?: (amount: AmountType) => void
   active: boolean
 }) => {
+  const { t } = useTranslation()
+
   return (
     <button
       className={` focus:  h-10 rounded border-gray-100 font-bold text-gray-700 shadow-md shadow-gray-300
@@ -17,7 +20,7 @@ export const Amount = ({
  ${amount === -1 ? 'w-18' : 'w-10'} ${active ? 'bg-stone-100 dark:bg-gray-500' : ''}`}
       onClick={() => onClick && onClick(amount)}
     >
-      {amount === -1 ? '自定义' : amount}
+      {amount === -1 ? t('donatingCard.custom') : amount}
     </button>
   )
 }
