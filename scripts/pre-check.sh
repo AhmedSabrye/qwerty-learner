@@ -31,17 +31,9 @@ else
     git --version
 fi
 
-if ! type yarn >/dev/null 2>&1; then
-    echo "未检测到 yarn 环境，尝试使用 homebrew 进行安装" 
-    # 检测 homebrew 是否存在
-    if ! type brew >/dev/null 2>&1; then
-        echo "未检测到 homebrew ，请手动安装 homebrew 后进行尝试 (https://brew.sh/)"
-    else 
-        brew install yarn
-        echo "yarn 安装完成，版本为: "
-        yarn --version
-    fi
+if ! type npm >/dev/null 2>&1; then
+    echo "未检测到 npm 环境，请确认已正确安装 NodeJS (https://nodejs.org/en/download)"
 else
-    echo "检测到 yarn 环境，版本为："
-    yarn -v
+    echo "检测到 npm 环境，版本为："
+    npm -v
 fi

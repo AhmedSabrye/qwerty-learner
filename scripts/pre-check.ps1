@@ -45,19 +45,11 @@ if (!(Test-CommandInstalled git)) {
     git --version
 }
 
-# 检测Yarn命令是否存在
-if (!(Test-CommandInstalled yarn)) {
-    Write-Host "未检测到 yarn 环境，尝试使用winget安装..."
-    # 检测winget是否存在
-    if (!(Test-CommandInstalled npm)) {
-        Write-Host "未检测到 npm，请尝试手动下载 NodeJS (https://nodejs.org/en/download)"
-    }
-    else {
-        npm install --global yarn
-        Write-Host "yarn 安装完成，版本为："
-        yarn --version
-    }
-}else{
-    Write-Host "检测到 yarn 环境，版本为："
-    yarn --version
+# 检测npm命令是否存在
+if (!(Test-CommandInstalled npm)) {
+    Write-Host "未检测到 npm，请尝试手动下载 NodeJS (https://nodejs.org/en/download)"
+}
+else {
+    Write-Host "检测到 npm 环境，版本为："
+    npm --version
 }
