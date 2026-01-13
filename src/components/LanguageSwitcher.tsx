@@ -6,22 +6,27 @@ import IconCheck from '~icons/tabler/check'
 import IconChevronDown from '~icons/tabler/chevron-down'
 
 type LangOption = {
-  id: 'en' | 'zh'
+  id: 'en' | 'zh' | 'ar'
   name: string
 }
 
 const options: LangOption[] = [
   { id: 'en', name: 'English' },
   { id: 'zh', name: '中文' },
+  { id: 'ar', name: 'العربية' },
 ]
 
 export default function LanguageSwitcher() {
   const { i18n } = useTranslation()
 
-  const current = useMemo(() => options.find((o) => o.id === (i18n.language.startsWith('zh') ? 'zh' : 'en')) ?? options[0], [i18n.language])
+  const current = useMemo(() => {
+    const lang = i18n.language.toLowerCase()
+    const id = lang.startsWith('zh') ? 'zh' : lang.startsWith('ar') ? 'ar' : 'en'
+    return options.find((o) => o.id === id) ?? options[0]
+  }, [i18n.language])
 
   const onChange = useCallback(
-    async (value: 'en' | 'zh') => {
+    async (value: 'en' | 'zh' | 'ar') => {
       await i18n.changeLanguage(value)
       localStorage.setItem('i18n_lang', value)
     },
@@ -59,6 +64,3 @@ export default function LanguageSwitcher() {
     </Listbox>
   )
 }
-
-
-
