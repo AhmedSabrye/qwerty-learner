@@ -10,7 +10,7 @@ export function getWordTranslation(word: Word, targetLang: TranslationLanguageTy
   // Handle legacy format (string array)
   if (Array.isArray(word.trans)) {
     // Legacy format - assume Chinese
-    return word.trans 
+    return word.trans
   }
 
   // Handle new multi-language format (Record<TranslationLanguageType, string[]>)
@@ -31,7 +31,7 @@ export function getWordTranslation(word: Word, targetLang: TranslationLanguageTy
 export function getFormattedTranslation(
   word: Word,
   targetLang: TranslationLanguageType,
-  fallbackMessage: string = 'Translation not available',
+  fallbackMessage = 'Translation not available',
 ): string {
   const translations = getWordTranslation(word, targetLang)
 

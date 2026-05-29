@@ -40,9 +40,8 @@ export default function GalleryPage() {
 
   const { groupedByCategoryAndTag } = useMemo(() => {
     // Filter dictionaries by both language category and translation language
-    const filteredDicts = dictionaries.filter((dict) => 
-      dict.languageCategory === galleryState.currentLanguageTab && 
-      dict.translationLanguage === translationLanguage
+    const filteredDicts = dictionaries.filter(
+      (dict) => dict.languageCategory === galleryState.currentLanguageTab && dict.translationLanguage === translationLanguage,
     )
     const groupedByCategory = Object.entries(groupBy(filteredDicts, (dict) => dict.category))
     const groupedByCategoryAndTag = groupedByCategory.map(

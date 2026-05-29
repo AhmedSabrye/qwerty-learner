@@ -43,28 +43,25 @@ export default function SharePicDialog({ showState, setShowState, randomChoose }
 
   const shareImage = useMemo(() => PIC_LIST[Math.floor(randomChoose.picRandom * PIC_LIST.length)], [randomChoose.picRandom])
   const encourageWords = [
-  { word: 'Ahead', sentence: "So fast it’s like having an extra hand over everyone else." },
-  { word: 'Thunder', sentence: "Hands move with the force of thunder, shaking the crowd." },
-  { word: 'Lightning', sentence: "Typing speed is like lightning darting across the keyboard." },
-  { word: 'Storm', sentence: "So fast it feels like a storm sweeping across the keys." },
-  { word: 'Arrow', sentence: "Typing accuracy is dead-on, like an arrow hitting the bullseye." },
-  { word: 'Rush', sentence: "Typing speed so fierce it feels like a wild surge forward." },
-  { word: 'Wind', sentence: "Typing at godlike speed, as quick as the wind itself." },
-  { word: 'Strike', sentence: "Typing is fast and flawless, not a single mistake." },
-  { word: 'Smooth', sentence: "Typing feels natural and effortless, like gliding on flat ground." },
-  { word: 'Trickster', sentence: "Typing style is crafty and surprising, winning by misdirection." },
-  { word: 'Wizard', sentence: "Typing so fast it feels like casting spells." },
-  { word: 'Flow', sentence: "Typing style is agile and flexible, like a serpent in motion." },
-  { word: 'Bird', sentence: "Typing is swift and free, soaring across the keyboard." },
-  { word: 'Pearls', sentence: "Typing is smooth and witty, like pearls dropping one after another." },
-  { word: 'Untouchable', sentence: "Typing speed and accuracy are invincible, like a body immune to all poisons." },
-  { word: 'Master', sentence: "Typing excels in both speed and accuracy, unstoppable in every way." },
-  { word: 'Leap', sentence: "Typing style is vivid and lively, as if the words are jumping from the screen." }
-]
-  const encouragePromotions = useMemo(
-    () => encourageWords.map((wordObj) => ({ word: wordObj.word, sentence: wordObj.sentence })),
-    [],
-  )
+    { word: 'Ahead', sentence: 'So fast it’s like having an extra hand over everyone else.' },
+    { word: 'Thunder', sentence: 'Hands move with the force of thunder, shaking the crowd.' },
+    { word: 'Lightning', sentence: 'Typing speed is like lightning darting across the keyboard.' },
+    { word: 'Storm', sentence: 'So fast it feels like a storm sweeping across the keys.' },
+    { word: 'Arrow', sentence: 'Typing accuracy is dead-on, like an arrow hitting the bullseye.' },
+    { word: 'Rush', sentence: 'Typing speed so fierce it feels like a wild surge forward.' },
+    { word: 'Wind', sentence: 'Typing at godlike speed, as quick as the wind itself.' },
+    { word: 'Strike', sentence: 'Typing is fast and flawless, not a single mistake.' },
+    { word: 'Smooth', sentence: 'Typing feels natural and effortless, like gliding on flat ground.' },
+    { word: 'Trickster', sentence: 'Typing style is crafty and surprising, winning by misdirection.' },
+    { word: 'Wizard', sentence: 'Typing so fast it feels like casting spells.' },
+    { word: 'Flow', sentence: 'Typing style is agile and flexible, like a serpent in motion.' },
+    { word: 'Bird', sentence: 'Typing is swift and free, soaring across the keyboard.' },
+    { word: 'Pearls', sentence: 'Typing is smooth and witty, like pearls dropping one after another.' },
+    { word: 'Untouchable', sentence: 'Typing speed and accuracy are invincible, like a body immune to all poisons.' },
+    { word: 'Master', sentence: 'Typing excels in both speed and accuracy, unstoppable in every way.' },
+    { word: 'Leap', sentence: 'Typing style is vivid and lively, as if the words are jumping from the screen.' },
+  ]
+  const encouragePromotions = useMemo(() => encourageWords.map((wordObj) => ({ word: wordObj.word, sentence: wordObj.sentence })), [])
   const promotions = useMemo(() => encouragePromotions, [encouragePromotions])
   const promote = useMemo(
     () => promotions[Math.floor(randomChoose.promoteRandom * (promotions?.length || 1))] || { word: '', sentence: '' },
@@ -171,7 +168,7 @@ export default function SharePicDialog({ showState, setShowState, randomChoose }
       </Transition.Root>
 
       <div style={{ position: 'absolute', left: '-999px', zIndex: -1 }}>
-        <div ref={imageRef} className=" box-content w-85 bg-white flex justify-center p-4">
+        <div ref={imageRef} className=" box-content flex w-85 justify-center bg-white p-4">
           <div
             className="relative flex h-120 w-75 flex-col items-start justify-start rounded-xl shadow-lg"
             style={{ backgroundColor: '#F8F8FF' }}
@@ -191,7 +188,9 @@ export default function SharePicDialog({ showState, setShowState, randomChoose }
             </div>
             <div className="mb-3 mt-auto">
               <div className="text-xs">Qwerty.kaiyi.cool</div>
-              <div className="mt-4 w-11/12 mx-auto rounded-xl text-xs font-normal text-center shadow-md p-2 text-gray-400">{t('mobile.easy_desc')}</div>
+              <div className="mx-auto mt-4 w-11/12 rounded-xl p-2 text-center text-xs font-normal text-gray-400 shadow-md">
+                {t('mobile.easy_desc')}
+              </div>
             </div>
             <div className="absolute -right-9 bottom-16 ">
               <img src={shareImage} className="w-48" width={186} height={122} />
@@ -222,14 +221,14 @@ function KeyboardPanel({ description }: { description: string }) {
   )
 }
 // make the font relative to the width of the key
-function KeyboardKey({ char, width }: { char: string, width: number }) {
+function KeyboardKey({ char, width }: { char: string; width: number }) {
   return (
     <div className="relative -mx-1 aspect-square flex-1 ">
       <div className="absolute bottom-0 left-0 right-0 top-0">
         <img src={keyboardSvg} className="h-full w-full" />
       </div>
       <div className="absolute left-0 right-0 flex items-center justify-center" style={{ top: 50 / width }}>
-        <span className="text-base font-normal text-white" style={{ fontSize: 100 / width  , transform: 'rotateX(30deg) ' }}>
+        <span className="text-base font-normal text-white" style={{ fontSize: 100 / width, transform: 'rotateX(30deg) ' }}>
           {char.toUpperCase()}
         </span>
       </div>

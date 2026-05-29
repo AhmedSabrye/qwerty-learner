@@ -1,7 +1,7 @@
-import { LucideShare2, Share } from 'lucide-react'
 import SharePicDialog from './SharePicDialog'
 import StreakShareDialog from './StreakShareDialog'
 import { recordShareAction } from '@/utils'
+import { LucideShare2, Share } from 'lucide-react'
 import { useCallback, useMemo, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import IconShare2 from '~icons/tabler/share-2'
@@ -31,13 +31,13 @@ export default function ShareButton() {
 
       <button
         type="button"
-        className="cursor-pointer py-2 px-4 font-bold font-sans hover:text-emerald-200 hover:bg-emerald-600 bg-emerald-500 duration-300 rounded-lg text-sm inline-flex items-center gap-2"
+        className="inline-flex cursor-pointer items-center gap-2 rounded-lg bg-emerald-500 px-4 py-2 font-sans text-sm font-bold duration-300 hover:bg-emerald-600 hover:text-emerald-200"
         onClick={onClickShare}
         title={t('sharePic.share_title')}
       >
         {/* <IconShare2 /> */}
         {t('sharePic.share_button')}
-        <LucideShare2/>
+        <LucideShare2 />
       </button>
       <button
         type="button"

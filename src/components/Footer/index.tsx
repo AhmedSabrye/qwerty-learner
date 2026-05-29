@@ -79,9 +79,7 @@ const Footer: React.FC = () => {
         iconClassName="text-sky-500 bg-sky-100 dark:text-sky-300 dark:bg-sky-500"
         onClose={() => handleCloseInfoPanel('vsc')}
       >
-        <p className="text-sm text-gray-500  dark:text-gray-400">
-          {t('footer.vscode_plugin.description')}
-        </p>
+        <p className="text-sm text-gray-500  dark:text-gray-400">{t('footer.vscode_plugin.description')}</p>
         <br /> <br />
         <a className="mr-5 underline dark:text-gray-300" href="https://github.com/Kaiyiwing/qwerty-learner-vscode">
           {t('footer.vscode_plugin.github_link')}
@@ -107,9 +105,7 @@ const Footer: React.FC = () => {
           <br />
           <br />
         </p>
-        <p className="text-sm text-gray-700 dark:text-gray-200">
-          {t('footer.community.description_3')}
-        </p>
+        <p className="text-sm text-gray-700 dark:text-gray-200">{t('footer.community.description_3')}</p>
         <br />
         <p className="text-sm text-gray-500  dark:text-gray-400">{t('footer.community.thanks')}</p>
         <br />
@@ -132,9 +128,7 @@ const Footer: React.FC = () => {
           <br />
           <br />
         </p>
-        <p className="text-sm text-gray-700 dark:text-gray-200">
-          {t('footer.redbook.description_3')}
-        </p>
+        <p className="text-sm text-gray-700 dark:text-gray-200">{t('footer.redbook.description_3')}</p>
         <br />
         <img className="ml-1 w-5/12 " src={redBookCode} alt="redBook" />
         <p className="text-sm text-gray-500 dark:text-gray-400">{t('footer.redbook.tips')}</p>
